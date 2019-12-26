@@ -1,0 +1,2292 @@
+@prefix : <http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl> .
+
+<http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#conflictsWith
+:conflictsWith rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdf:type owl:AsymmetricProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :Action
+                                           :ManagedEntityMethod
+                                         )
+                           ] ;
+               rdfs:range [ rdf:type owl:Class ;
+                            owl:unionOf ( :Action
+                                          :ManagedEntityMethod
+                                        )
+                          ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#containedBy
+:containedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :VNFD ;
+             rdfs:range :NSD .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasAction
+:hasAction rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :PolicyAction ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( :Action
+                                      :ManagedEntityMethod
+                                    )
+                      ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasActionType
+:hasActionType rdf:type owl:ObjectProperty ;
+               rdfs:domain :HealingCriteria ;
+               rdfs:range :HealingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasAttribute
+:hasAttribute rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Goal ;
+              rdfs:range :Attribute .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasEvent
+:hasEvent rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :PolicyEvent ;
+          rdfs:range :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealingCriteria
+:hasHealingCriteria rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :HealingGroup ;
+                    rdfs:range :HealingCriteria .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLevel
+:hasLevel rdf:type owl:ObjectProperty ;
+          rdfs:domain :Goal ;
+          rdfs:range :Level .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMetric
+:hasMetric rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           owl:inverseOf :isMetricOf ;
+           rdfs:domain :Threshold ;
+           rdfs:range :Metric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasNS
+:hasNS rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :Goal ;
+       rdfs:range :NS .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasNsMonitoringParamRef
+:hasNsMonitoringParamRef rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :HealingCriteria
+                                                     :ScalingCriteria
+                                                   )
+                                     ] ;
+                         rdfs:range :Metric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasParameterKey
+:hasParameterKey rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :PolicyCondition ;
+                 rdfs:range :Parameter .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyAction
+:hasPolicyAction rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :PolicyRule ;
+                 rdfs:range :PolicyAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyCondition
+:hasPolicyCondition rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :PolicyRule ;
+                    rdfs:range :PolicyCondition .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyEvent
+:hasPolicyEvent rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :PolicyRule ;
+                rdfs:range :PolicyEvent .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingCriteria
+:hasScalingCriteria rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :ScalingGroup ;
+                    rdfs:range :ScalingCriteria .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingPolicy
+:hasScalingPolicy rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ScalingGroup ;
+                  rdfs:range :ScalingPolicy .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasSubject
+:hasSubject rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Action
+                                        :ManagedEntityMethod
+                                      )
+                        ] ;
+            rdfs:range :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasTarget
+:hasTarget rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :Action
+                                       :ManagedEntityMethod
+                                     )
+                       ] ;
+           rdfs:range :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasThreshold
+:hasThreshold rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              owl:inverseOf :isThresholdOf ;
+              rdfs:domain :Action ;
+              rdfs:range :Threshold .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasVNF
+:hasVNF rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Goal ;
+        rdfs:range :VNF .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#intersectsWith
+:intersectsWith rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:AsymmetricProperty ;
+                rdfs:domain :Goal ;
+                rdfs:range :Goal .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#isMetricOf
+:isMetricOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Metric ;
+            rdfs:range :Threshold .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#isThresholdOf
+:isThresholdOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Threshold ;
+               rdfs:range :Action .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsState
+:nsState rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :NS ;
+         rdfs:range :NS_LCM_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd
+:nsd rdf:type owl:ObjectProperty ;
+     rdfs:range :NSD .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdFile
+:nsdFile rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :NSD ;
+         rdfs:range :NSD_FILE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdOnboardingState
+:nsdOnboardingState rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :NSD ;
+                    rdfs:range :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdOperationalState
+:nsdOperationalState rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :NSD ;
+                     rdfs:range :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdUsageState
+:nsdUsageState rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :NSD ;
+               rdfs:range :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboardingState
+:onboardingState rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :VNFD ;
+                 rdfs:range :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#operationalState
+:operationalState rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :VNFD ;
+                  rdfs:range :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#state
+:state rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:range :SOL005_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#usageState
+:usageState rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :VNFD ;
+            rdfs:range :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#usedBySameActionAs
+:usedBySameActionAs rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdf:type owl:IrreflexiveProperty ;
+                    rdfs:domain :Metric ;
+                    rdfs:range :Metric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdFile
+:vnfdFile rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :VNFD ;
+          rdfs:range :VNFD_FILE .
+
+
+###  http://www.w3.org/2002/07/owl#differentFrom
+owl:differentFrom rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#_links
+:_links rdf:type owl:DatatypeProperty ;
+        rdfs:domain :NS ;
+        rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#additionalAffinityOrAntiAffinityRule
+:additionalAffinityOrAntiAffinityRule rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :NS ;
+                                      rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#additionalArtifacts
+:additionalArtifacts rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :VNFD ;
+                     rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#checksum
+:checksum rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :VNFD ;
+          rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#flavourId
+:flavourId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :NS ;
+           rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasCoolDownTime
+:hasCoolDownTime rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :HealingPolicy
+                                             :ScalingPolicy
+                                           )
+                             ] ;
+                 rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasCount
+:hasCount rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :ScalingGroup ;
+          rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealOperationType
+:hasHealOperationType rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :HealingPolicy ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealRelationalOperation
+:hasHealRelationalOperation rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :HealingCriteria ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealThreshold
+:hasHealThreshold rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :HealingCriteria ;
+                  rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealingType
+:hasHealingType rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :HealingPolicy ;
+                rdfs:range xsd:string ;
+                rdfs:comment "{\"enum\": [\"automatic\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighScaleInThresholdValue
+:hasHighScaleInThresholdValue rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain :ScalingThreshold ;
+                              rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighScaleOutThresholdValue
+:hasHighScaleOutThresholdValue rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :ScalingThreshold ;
+                               rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighThresholdValue
+:hasHighThresholdValue rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :HealingThreshold ;
+                       rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowScaleInThresholdValue
+:hasLowScaleInThresholdValue rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :ScalingThreshold ;
+                             rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowScaleOutThresholdValue
+:hasLowScaleOutThresholdValue rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain :ScalingThreshold ;
+                              rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowThresholdValue
+:hasLowThresholdValue rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :HealingThreshold ;
+                      rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMaxInstanceCount
+:hasMaxInstanceCount rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :ScalingGroup ;
+                     rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumScaleInThresholdValue
+:hasMediumScaleInThresholdValue rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :ScalingThreshold ;
+                                rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumScaleOutThresholdValue
+:hasMediumScaleOutThresholdValue rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                 rdfs:domain :ScalingThreshold ;
+                                 rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumThresholdValue
+:hasMediumThresholdValue rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:domain :HealingThreshold ;
+                         rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMemberVNFIndex
+:hasMemberVNFIndex rdf:type owl:DatatypeProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( :VNF
+                                               :VNFD
+                                             )
+                               ] ;
+                   rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMemberVNFIndexRef
+:hasMemberVNFIndexRef rdf:type owl:DatatypeProperty ;
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( :HealingGroup
+                                                  :ScalingGroup
+                                                )
+                                  ] ;
+                      rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMinInstanceCount
+:hasMinInstanceCount rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :ScalingGroup ;
+                     rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasParameterValue
+:hasParameterValue rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :PolicyCondition ;
+                   rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInOperationType
+:hasScaleInOperationType rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:domain :ScalingPolicy ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInRelationalOperation
+:hasScaleInRelationalOperation rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :ScalingCriteria ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInThreshold
+:hasScaleInThreshold rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :ScalingCriteria ;
+                     rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutOperationType
+:hasScaleOutOperationType rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :ScalingPolicy ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutRelationalOperation
+:hasScaleOutRelationalOperation rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :ScalingCriteria ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutThreshold
+:hasScaleOutThreshold rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :ScalingCriteria ;
+                      rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingType
+:hasScalingType rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :ScalingPolicy ;
+                rdfs:range xsd:string ;
+                rdfs:comment "{\"enum\": [\"automatic\"]}" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasThresholdTime
+:hasThresholdTime rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( :HealingPolicy
+                                              :ScalingPolicy
+                                            )
+                              ] ;
+                  rdfs:range xsd:integer .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#methodName
+:methodName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ManagedEntityMethod ;
+            rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#monitoringParameter
+:monitoringParameter rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :NS ;
+                     rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ndsName
+:ndsName rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :NSD ;
+         rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nestedNsInstanceId
+:nestedNsInstanceId rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :NS ;
+                    rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nestedNsdInfoIds
+:nestedNsdInfoIds rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :NSD ;
+                  rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsDescription
+:nsDescription rdf:type owl:DatatypeProperty ;
+               rdfs:domain :NSRequest ;
+               rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsInstanceDescription
+:nsInstanceDescription rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :NS ;
+                       rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsInstanceName
+:nsInstanceName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :NS ;
+                rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsName
+:nsName rdf:type owl:DatatypeProperty ;
+        rdfs:domain :NSRequest ;
+        rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsScaleStatus
+:nsScaleStatus rdf:type owl:DatatypeProperty ;
+               rdfs:domain :NS ;
+               rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdDesigner
+:nsdDesigner rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :NSD ;
+             rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdId
+:nsdId rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdInfoId
+:nsdInfoId rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdInvariantId
+:nsdInvariantId rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :NSD ;
+                rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdVersion
+:nsdVersion rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :NSD ;
+            rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboardingFailureDetails
+:onboardingFailureDetails rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :NSD ;
+                          rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pnfInfo
+:pnfInfo rdf:type owl:DatatypeProperty ;
+         rdfs:domain :NS ;
+         rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pnfdInfoIds
+:pnfdInfoIds rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :NSD ;
+             rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sapInfo
+:sapInfo rdf:type owl:DatatypeProperty ;
+         rdfs:domain :NS ;
+         rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#softwareImages
+:softwareImages rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :VNFD ;
+                rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#userDefinedData
+:userDefinedData rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#virtualLinkInfo
+:virtualLinkInfo rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :NS ;
+                 rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfInstance
+:vnfInstance rdf:type owl:DatatypeProperty ;
+             rdfs:domain :NS ;
+             rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfPkgIds
+:vnfPkgIds rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :NSD ;
+           rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfProductName
+:vnfProductName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :VNFD ;
+                rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfProvider
+:vnfProvider rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :VNFD ;
+             rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfSoftwareVersion
+:vnfSoftwareVersion rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :VNFD ;
+                    rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdId
+:vnfdId rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :VNFD ;
+        rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdVersion
+:vnfdVersion rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :VNFD ;
+             rdfs:range xsd:string .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnffgInfo
+:vnffgInfo rdf:type owl:DatatypeProperty ;
+           rdfs:domain :NS ;
+           rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Action
+:Action rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Attribute
+:Attribute rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:oneOf ( :manageability
+                                             :performance
+                                             :resilience
+                                             :security
+                                           )
+                               ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#BaseMetric
+:BaseMetric rdf:type owl:Class ;
+            rdfs:subClassOf :Metric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Event
+:Event rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#GenericMethod
+:GenericMethod rdf:type owl:Class ;
+               rdfs:subClassOf :ManagedEntityMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Goal
+:Goal rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingAction
+:HealingAction rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( :migrate
+                                                 :redeploy
+                                                 :restart
+                                                 :turnoff
+                                               )
+                                   ] ;
+               rdfs:subClassOf :Action .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingCriteria
+:HealingCriteria rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingGroup
+:HealingGroup rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingPolicy
+:HealingPolicy rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingThreshold
+:HealingThreshold rdf:type owl:Class ;
+                  rdfs:subClassOf :Threshold ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasHighThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasLowThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasMediumThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ;
+                  owl:disjointWith :ScalingThreshold .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005Method
+:IFA005Method rdf:type owl:Class ;
+              rdfs:subClassOf :ManagedEntityMethod ;
+              rdfs:comment "IFA 005 - Or-Vi reference point" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtCompMethod
+:IFA005VirtCompMethod rdf:type owl:Class ;
+                      rdfs:subClassOf :IFA005Method ;
+                      rdfs:comment "IFA 005 - Virtualised Compute Interfaces" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtResFMMethod
+:IFA005VirtResFMMethod rdf:type owl:Class ;
+                       rdfs:subClassOf :IFA005Method .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtResResMethod
+:IFA005VirtResResMethod rdf:type owl:Class ;
+                        rdfs:subClassOf :IFA005Method ;
+                        rdfs:comment "IFA 005 - Virtualised Resource Reservation Interfaces" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006Method
+:IFA006Method rdf:type owl:Class ;
+              rdfs:subClassOf :ManagedEntityMethod ;
+              rdfs:comment "IFA 006 - Vi-Vnfm reference point" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006VirtCompMethod
+:IFA006VirtCompMethod rdf:type owl:Class ;
+                      rdfs:subClassOf :IFA006Method ;
+                      rdfs:comment "IFA 006 - Virtualised Compute Resources Management Interface" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006VirtResFMMethod
+:IFA006VirtResFMMethod rdf:type owl:Class ;
+                       rdfs:subClassOf :IFA006Method ;
+                       rdfs:comment "IFA 006 - Virtualised Resources Fault Management Interface" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA007Method
+:IFA007Method rdf:type owl:Class ;
+              rdfs:subClassOf :ManagedEntityMethod ;
+              rdfs:comment "IFA 007 - Or-Vnfm reference point" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA007VNFLcmMethod
+:IFA007VNFLcmMethod rdf:type owl:Class ;
+                    rdfs:subClassOf :IFA007Method ;
+                    rdfs:comment "IFA 007 - VNF Lifecycle Management interface" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008Method
+:IFA008Method rdf:type owl:Class ;
+              rdfs:subClassOf :ManagedEntityMethod ;
+              rdfs:comment "IFA 008 - Ve-Vnfm reference point" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008VNFConfigMethod
+:IFA008VNFConfigMethod rdf:type owl:Class ;
+                       rdfs:subClassOf :IFA008Method ;
+                       rdfs:comment "IFA 008 - VNF configuration interface" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008VNFIndMethod
+:IFA008VNFIndMethod rdf:type owl:Class ;
+                    rdfs:subClassOf :IFA008Method ;
+                    rdfs:comment "IFA 008 - VNF indicator interface" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013Method
+:IFA013Method rdf:type owl:Class ;
+              rdfs:subClassOf :ManagedEntityMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013NSDMethod
+:IFA013NSDMethod rdf:type owl:Class ;
+                 rdfs:subClassOf :IFA013Method .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013NSLcmMethod
+:IFA013NSLcmMethod rdf:type owl:Class ;
+                   rdfs:subClassOf :IFA013Method .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013VNFPKGMethod
+:IFA013VNFPKGMethod rdf:type owl:Class ;
+                    rdfs:subClassOf :IFA013Method .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Level
+:Level rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:oneOf ( :high
+                                         :low
+                                         :medium
+                                       )
+                           ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ManagedEntity
+:ManagedEntity rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ManagedEntityMethod
+:ManagedEntityMethod rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Metric
+:Metric rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS
+:NS rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD
+:NSD rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD_FILE
+:NSD_FILE rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD_MGMT_STATE
+:NSD_MGMT_STATE rdf:type owl:Class ;
+                rdfs:subClassOf :SOL005_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSRequest
+:NSRequest rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_FM_MGMT_STATE
+:NS_FM_MGMT_STATE rdf:type owl:Class ;
+                  rdfs:subClassOf :SOL005_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_LCM_MGMT_STATE
+:NS_LCM_MGMT_STATE rdf:type owl:Class ;
+                   rdfs:subClassOf :SOL005_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_PERF_MGMT_STATE
+:NS_PERF_MGMT_STATE rdf:type owl:Class ;
+                    rdfs:subClassOf :SOL005_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Parameter
+:Parameter rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PerfCheckerMetric
+:PerfCheckerMetric rdf:type owl:Class ;
+                   rdfs:subClassOf :Metric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyAction
+:PolicyAction rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasAction ;
+                                owl:someValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :Action
+                                                                   :ManagedEntityMethod
+                                                                 )
+                                                   ]
+                              ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyCondition
+:PolicyCondition rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasParameterKey ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Parameter
+                                 ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyEvent
+:PolicyEvent rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasEvent ;
+                               owl:someValuesFrom :Event
+                             ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyRule
+:PolicyRule rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPolicyAction ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :PolicyAction
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPolicyEvent ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :PolicyEvent
+                            ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#SOL005_STATE
+:SOL005_STATE rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingAction
+:ScalingAction rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( :horizontal_scale
+                                               )
+                                   ] ;
+               rdfs:subClassOf :Action .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingCriteria
+:ScalingCriteria rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingGroup
+:ScalingGroup rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingPolicy
+:ScalingPolicy rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingThreshold
+:ScalingThreshold rdf:type owl:Class ;
+                  rdfs:subClassOf :Threshold ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasHighScaleInThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasHighScaleOutThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasLowScaleInThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasLowScaleOutThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasMediumScaleInThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasMediumScaleOutThresholdValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Threshold
+:Threshold rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasMetric ;
+                             owl:someValuesFrom :Metric
+                           ] .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNF
+:VNF rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFC
+:VNFC rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFD
+:VNFD rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFD_FILE
+:VNFD_FILE rdf:type owl:Class .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNF_PKG_MGMT_STATE
+:VNF_PKG_MGMT_STATE rdf:type owl:Class ;
+                    rdfs:subClassOf :SOL005_STATE .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#alarm_notified
+:alarm_notified rdf:type owl:NamedIndividual ,
+                         :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#alarm_type
+:alarm_type rdf:type owl:NamedIndividual ,
+                     :Parameter .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_dynamic_traffic_fluctuations_mechanisms
+:configure_dynamic_traffic_fluctuations_mechanisms rdf:type owl:NamedIndividual ,
+                                                            :GenericMethod ;
+                                                   :hasSubject :nfvo ;
+                                                   :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_failures_prediction_mechanisms
+:configure_failures_prediction_mechanisms rdf:type owl:NamedIndividual ,
+                                                   :GenericMethod ;
+                                          :hasSubject :nfvo ;
+                                          :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_multipath_routing
+:configure_multipath_routing rdf:type owl:NamedIndividual ,
+                                      :GenericMethod ;
+                             :hasSubject :nfvo ;
+                             :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_healing_policies
+:create_healing_policies rdf:type owl:NamedIndividual ,
+                                  :GenericMethod ;
+                         :hasSubject :nfvo ;
+                         :hasTarget :pol .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_link_active_active_redundancy
+:create_link_active_active_redundancy rdf:type owl:NamedIndividual ,
+                                               :GenericMethod ;
+                                      :hasSubject :nfvo ;
+                                      :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_link_active_standby_redundancy
+:create_link_active_standby_redundancy rdf:type owl:NamedIndividual ,
+                                                :GenericMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_load_sharing_between_links
+:create_load_sharing_between_links rdf:type owl:NamedIndividual ,
+                                            :GenericMethod ;
+                                   :hasSubject :nfvo ;
+                                   :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_nic_bonding_of_vnics
+:create_nic_bonding_of_vnics rdf:type owl:NamedIndividual ,
+                                      :GenericMethod ;
+                             :hasSubject :nfvo ;
+                             :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_ns_identifier
+:create_ns_identifier rdf:type owl:NamedIndividual ,
+                               :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_phy_nic_bonding
+:create_phy_nic_bonding rdf:type owl:NamedIndividual ,
+                                 :GenericMethod ;
+                        :hasSubject :nfvo ;
+                        :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_scaling_policies
+:create_scaling_policies rdf:type owl:NamedIndividual ,
+                                  :GenericMethod ;
+                         :hasSubject :nfvo ;
+                         :hasTarget :pol .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_vnf_internal_redundancy
+:create_vnf_internal_redundancy rdf:type owl:NamedIndividual ,
+                                         :GenericMethod ;
+                                :hasSubject :nfvo ;
+                                :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_ns_identifier
+:delete_ns_identifier rdf:type owl:NamedIndividual ,
+                               :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_nsd
+:delete_nsd rdf:type owl:NamedIndividual ,
+                     :IFA013NSDMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_vnfpkg
+:delete_vnfpkg rdf:type owl:NamedIndividual ,
+                        :IFA013VNFPKGMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#disable_nsd
+:disable_nsd rdf:type owl:NamedIndividual ,
+                      :IFA013NSDMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#disable_vnfpkg
+:disable_vnfpkg rdf:type owl:NamedIndividual ,
+                         :IFA013VNFPKGMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#enable_nsd
+:enable_nsd rdf:type owl:NamedIndividual ,
+                     :IFA013NSDMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#enable_vnfpkg
+:enable_vnfpkg rdf:type owl:NamedIndividual ,
+                        :IFA013VNFPKGMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#fetch_vnfpkg
+:fetch_vnfpkg rdf:type owl:NamedIndividual ,
+                       :IFA013VNFPKGMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#get_operation_status
+:get_operation_status rdf:type owl:NamedIndividual ,
+                               :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#heal_ns
+:heal_ns rdf:type owl:NamedIndividual ,
+                  :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#high
+:high rdf:type owl:NamedIndividual ,
+               :Level .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#horizontal_scale
+:horizontal_scale rdf:type owl:NamedIndividual ,
+                           :ScalingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hp_template
+:hp_template rdf:type owl:NamedIndividual ,
+                      :HealingPolicy ;
+             :hasCoolDownTime 120 ;
+             :hasHealOperationType "AND" ;
+             :hasHealingType "automatic" ;
+             :hasThresholdTime 60 .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_allocate_vcomp
+:ifa005_allocate_vcomp rdf:type owl:NamedIndividual ,
+                                :IFA005VirtCompMethod ;
+                       :hasSubject :nfvo ;
+                       :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_migrate_vcomp
+:ifa005_migrate_vcomp rdf:type owl:NamedIndividual ,
+                               :IFA005VirtCompMethod ;
+                      :hasSubject :nfvo ;
+                      :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_subscribe_link_out_of_service_event
+:ifa005_subscribe_link_out_of_service_event rdf:type owl:NamedIndividual ,
+                                                     :IFA005VirtResFMMethod ;
+                                            :hasSubject :nfvo ;
+                                            :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa006_migrate_vcomp
+:ifa006_migrate_vcomp rdf:type owl:NamedIndividual ,
+                               :IFA006VirtCompMethod ;
+                      :hasSubject :vnfm ;
+                      :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa006_subscribe_link_down_event
+:ifa006_subscribe_link_down_event rdf:type owl:NamedIndividual ,
+                                           :IFA006VirtResFMMethod ;
+                                  :hasSubject :vnfm ;
+                                  :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa007_terminate_vnf
+:ifa007_terminate_vnf rdf:type owl:NamedIndividual ,
+                               :IFA007VNFLcmMethod ;
+                      :hasSubject :nfvo ;
+                      :hasTarget :vnfm .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa008_set_configuration
+:ifa008_set_configuration rdf:type owl:NamedIndividual ,
+                                   :IFA008VNFConfigMethod ;
+                          :hasSubject :vnfm ;
+                          :hasTarget :vnf .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa008_subscribe_vnf_out_of_service_event
+:ifa008_subscribe_vnf_out_of_service_event rdf:type owl:NamedIndividual ,
+                                                    :IFA008VNFIndMethod ;
+                                           :hasSubject :vnfm ;
+                                           :hasTarget :vnf .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#instantiate_ns
+:instantiate_ns rdf:type owl:NamedIndividual ,
+                         :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#instantiation_request
+:instantiation_request rdf:type owl:NamedIndividual ,
+                                :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#logical_unit
+:logical_unit rdf:type owl:NamedIndividual ,
+                       :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#low
+:low rdf:type owl:NamedIndividual ,
+              :Level .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#manageability
+:manageability rdf:type owl:NamedIndividual ,
+                        :Attribute .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#medium
+:medium rdf:type owl:NamedIndividual ,
+                 :Level .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#migrate
+:migrate rdf:type owl:NamedIndividual ,
+                  :HealingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#move_conn_to_vnf_backup
+:move_conn_to_vnf_backup rdf:type owl:NamedIndividual ,
+                                  :GenericMethod ;
+                         :hasSubject :nfvo ;
+                         :hasTarget :vim .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nfvo
+:nfvo rdf:type owl:NamedIndividual ,
+               :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_id
+:ns_id rdf:type owl:NamedIndividual ,
+                :Parameter .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_instantiated
+:ns_instantiated rdf:type owl:NamedIndividual ,
+                          :NS_LCM_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_not_instantiated
+:ns_not_instantiated rdf:type owl:NamedIndividual ,
+                              :NS_LCM_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_created
+:nsd_on_created rdf:type owl:NamedIndividual ,
+                         :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_onboarded
+:nsd_on_onboarded rdf:type owl:NamedIndividual ,
+                           :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_processing
+:nsd_on_processing rdf:type owl:NamedIndividual ,
+                            :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_uploading
+:nsd_on_uploading rdf:type owl:NamedIndividual ,
+                           :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_op_disabled
+:nsd_op_disabled rdf:type owl:NamedIndividual ,
+                          :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_op_enabled
+:nsd_op_enabled rdf:type owl:NamedIndividual ,
+                         :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_us_in_use
+:nsd_us_in_use rdf:type owl:NamedIndividual ,
+                        :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_us_not_in_use
+:nsd_us_not_in_use rdf:type owl:NamedIndividual ,
+                            :NSD_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdcontent_uploaded
+:nsdcontent_uploaded rdf:type owl:NamedIndividual ,
+                              :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdinfo_created
+:nsdinfo_created rdf:type owl:NamedIndividual ,
+                          :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_created
+:nsinst_created rdf:type owl:NamedIndividual ,
+                         :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_deleted
+:nsinst_deleted rdf:type owl:NamedIndividual ,
+                         :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_healed
+:nsinst_healed rdf:type owl:NamedIndividual ,
+                        :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_instantiated
+:nsinst_instantiated rdf:type owl:NamedIndividual ,
+                              :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_scaled
+:nsinst_scaled rdf:type owl:NamedIndividual ,
+                        :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_terminated
+:nsinst_terminated rdf:type owl:NamedIndividual ,
+                            :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboard_nsd
+:onboard_nsd rdf:type owl:NamedIndividual ,
+                      :IFA013NSDMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboard_vnfpkg
+:onboard_vnfpkg rdf:type owl:NamedIndividual ,
+                         :IFA013VNFPKGMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_cpu_load
+:osm_pc_vim_cpu_load rdf:type owl:NamedIndividual ,
+                              :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_bytes
+:osm_pc_vim_dc_vswitch_rx_bytes rdf:type owl:NamedIndividual ,
+                                         :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_dropped
+:osm_pc_vim_dc_vswitch_rx_dropped rdf:type owl:NamedIndividual ,
+                                           :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_packets
+:osm_pc_vim_dc_vswitch_rx_packets rdf:type owl:NamedIndividual ,
+                                           :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_bytes
+:osm_pc_vim_dc_vswitch_tx_bytes rdf:type owl:NamedIndividual ,
+                                         :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_dropped
+:osm_pc_vim_dc_vswitch_tx_dropped rdf:type owl:NamedIndividual ,
+                                           :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_packets
+:osm_pc_vim_dc_vswitch_tx_packets rdf:type owl:NamedIndividual ,
+                                           :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_mem_load
+:osm_pc_vim_mem_load rdf:type owl:NamedIndividual ,
+                              :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_bytes
+:osm_pc_vim_phynic_rx_bytes rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_dropped
+:osm_pc_vim_phynic_rx_dropped rdf:type owl:NamedIndividual ,
+                                       :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_packets
+:osm_pc_vim_phynic_rx_packets rdf:type owl:NamedIndividual ,
+                                       :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_bytes
+:osm_pc_vim_phynic_tx_bytes rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_dropped
+:osm_pc_vim_phynic_tx_dropped rdf:type owl:NamedIndividual ,
+                                       :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_packets
+:osm_pc_vim_phynic_tx_packets rdf:type owl:NamedIndividual ,
+                                       :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_bytes
+:osm_pc_vim_vnic_rx_bytes rdf:type owl:NamedIndividual ,
+                                   :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_dropped
+:osm_pc_vim_vnic_rx_dropped rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_packets
+:osm_pc_vim_vnic_rx_packets rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_bytes
+:osm_pc_vim_vnic_tx_bytes rdf:type owl:NamedIndividual ,
+                                   :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_dropped
+:osm_pc_vim_vnic_tx_dropped rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_packets
+:osm_pc_vim_vnic_tx_packets rdf:type owl:NamedIndividual ,
+                                     :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_bytes
+:osm_pc_vim_vswitch_rx_bytes rdf:type owl:NamedIndividual ,
+                                      :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_dropped
+:osm_pc_vim_vswitch_rx_dropped rdf:type owl:NamedIndividual ,
+                                        :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_packets
+:osm_pc_vim_vswitch_rx_packets rdf:type owl:NamedIndividual ,
+                                        :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_bytes
+:osm_pc_vim_vswitch_tx_bytes rdf:type owl:NamedIndividual ,
+                                      :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_dropped
+:osm_pc_vim_vswitch_tx_dropped rdf:type owl:NamedIndividual ,
+                                        :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_packets
+:osm_pc_vim_vswitch_tx_packets rdf:type owl:NamedIndividual ,
+                                        :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_cpu_load
+:osm_pc_vm_cpu_load rdf:type owl:NamedIndividual ,
+                             :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_disk_in_bytes
+:osm_pc_vm_disk_in_bytes rdf:type owl:NamedIndividual ,
+                                  :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_disk_out_bytes
+:osm_pc_vm_disk_out_bytes rdf:type owl:NamedIndividual ,
+                                   :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_mem_load
+:osm_pc_vm_mem_load rdf:type owl:NamedIndividual ,
+                             :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_mem_usage_bytes
+:osm_pc_vm_mem_usage_bytes rdf:type owl:NamedIndividual ,
+                                    :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_pkt_in_bytes
+:osm_pc_vm_pkt_in_bytes rdf:type owl:NamedIndividual ,
+                                 :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_pkt_out_bytes
+:osm_pc_vm_pkt_out_bytes rdf:type owl:NamedIndividual ,
+                                  :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_bytes
+:osm_pc_vm_vnic_rx_bytes rdf:type owl:NamedIndividual ,
+                                  :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_dropped
+:osm_pc_vm_vnic_rx_dropped rdf:type owl:NamedIndividual ,
+                                    :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_packets
+:osm_pc_vm_vnic_rx_packets rdf:type owl:NamedIndividual ,
+                                    :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_bytes
+:osm_pc_vm_vnic_tx_bytes rdf:type owl:NamedIndividual ,
+                                  :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_dropped
+:osm_pc_vm_vnic_tx_dropped rdf:type owl:NamedIndividual ,
+                                    :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_packets
+:osm_pc_vm_vnic_tx_packets rdf:type owl:NamedIndividual ,
+                                    :PerfCheckerMetric .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_vim_status
+:osm_vim_status rdf:type owl:NamedIndividual ,
+                         :BaseMetric ;
+                rdfs:comment "true or false" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_vm_status
+:osm_vm_status rdf:type owl:NamedIndividual ,
+                        :BaseMetric ;
+               rdfs:comment "This metric is 1 if VM has ACTIVE status and 0 otherwise" .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#performance
+:performance rdf:type owl:NamedIndividual ,
+                      :Attribute .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pol
+:pol rdf:type owl:NamedIndividual ,
+              :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#redeploy
+:redeploy rdf:type owl:NamedIndividual ,
+                   :HealingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#resilience
+:resilience rdf:type owl:NamedIndividual ,
+                     :Attribute .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#restart
+:restart rdf:type owl:NamedIndividual ,
+                  :HealingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#retrieve_state_from_logical_unit
+:retrieve_state_from_logical_unit rdf:type owl:NamedIndividual ,
+                                           :GenericMethod ;
+                                  :hasSubject :vnf ;
+                                  :hasTarget :logical_unit .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#scale_ns
+:scale_ns rdf:type owl:NamedIndividual ,
+                   :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#security
+:security rdf:type owl:NamedIndividual ,
+                   :Attribute .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sg_template
+:sg_template rdf:type owl:NamedIndividual ,
+                      :ScalingGroup ;
+             :hasScalingPolicy :sp_template ;
+             :hasCount 1 ;
+             :hasMaxInstanceCount 10 ;
+             :hasMinInstanceCount 0 .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sp_template
+:sp_template rdf:type owl:NamedIndividual ,
+                      :ScalingPolicy ;
+             :hasCoolDownTime 120 ;
+             :hasScaleInOperationType "AND" ;
+             :hasScaleOutOperationType "OR" ;
+             :hasScalingType "automatic" ;
+             :hasThresholdTime 60 .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#success_resource_response
+:success_resource_response rdf:type owl:NamedIndividual ,
+                                    :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#terminate_ns
+:terminate_ns rdf:type owl:NamedIndividual ,
+                       :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#transfer_state_to_logical_unit
+:transfer_state_to_logical_unit rdf:type owl:NamedIndividual ,
+                                         :GenericMethod ;
+                                :hasSubject :vnfm ;
+                                :hasTarget :vnf .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#transfer_state_to_vnf_backup
+:transfer_state_to_vnf_backup rdf:type owl:NamedIndividual ,
+                                       :GenericMethod ;
+                              :hasSubject :vnfm ;
+                              :hasTarget :vnf .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#turnoff
+:turnoff rdf:type owl:NamedIndividual ,
+                  :HealingAction .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#update_ns
+:update_ns rdf:type owl:NamedIndividual ,
+                    :IFA013NSLcmMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#update_nsd
+:update_nsd rdf:type owl:NamedIndividual ,
+                     :IFA013NSDMethod .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vim
+:vim rdf:type owl:NamedIndividual ,
+              :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnf
+:vnf rdf:type owl:NamedIndividual ,
+              :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnf_member_index
+:vnf_member_index rdf:type owl:NamedIndividual ,
+                           :Parameter .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_created
+:vnfd_on_created rdf:type owl:NamedIndividual ,
+                          :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_onboarded
+:vnfd_on_onboarded rdf:type owl:NamedIndividual ,
+                            :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_processing
+:vnfd_on_processing rdf:type owl:NamedIndividual ,
+                             :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_uploading
+:vnfd_on_uploading rdf:type owl:NamedIndividual ,
+                            :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_op_disabled
+:vnfd_op_disabled rdf:type owl:NamedIndividual ,
+                           :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_op_enabled
+:vnfd_op_enabled rdf:type owl:NamedIndividual ,
+                          :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_us_in_use
+:vnfd_us_in_use rdf:type owl:NamedIndividual ,
+                         :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_us_not_in_use
+:vnfd_us_not_in_use rdf:type owl:NamedIndividual ,
+                             :VNF_PKG_MGMT_STATE .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_created
+:vnfinst_created rdf:type owl:NamedIndividual ,
+                          :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_deleted
+:vnfinst_deleted rdf:type owl:NamedIndividual ,
+                          :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_healed
+:vnfinst_healed rdf:type owl:NamedIndividual ,
+                         :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_instantiated
+:vnfinst_instantiated rdf:type owl:NamedIndividual ,
+                               :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_scaled
+:vnfinst_scaled rdf:type owl:NamedIndividual ,
+                         :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_terminated
+:vnfinst_terminated rdf:type owl:NamedIndividual ,
+                             :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfm
+:vnfm rdf:type owl:NamedIndividual ,
+               :ManagedEntity .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfpkgcontent_uploaded
+:vnfpkgcontent_uploaded rdf:type owl:NamedIndividual ,
+                                 :Event .
+
+
+###  http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfpkginfo_created
+:vnfpkginfo_created rdf:type owl:NamedIndividual ,
+                             :Event .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GenericMethod
+                :IFA005Method
+                :IFA006Method
+                :IFA007Method
+                :IFA013Method
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :IFA013NSDMethod
+                :IFA013NSLcmMethod
+                :IFA013VNFPKGMethod
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :NSD_MGMT_STATE
+                :NS_FM_MGMT_STATE
+                :NS_LCM_MGMT_STATE
+                :NS_PERF_MGMT_STATE
+                :VNF_PKG_MGMT_STATE
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:z rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:m1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:m2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:g1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:g2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ns1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ns2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:idt rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:vnf1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:vnf2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:index rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pe1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pe2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:e rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pc1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pc2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:key rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:value rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pa1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pa2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Detect conflicts between generated policies rule with same events and conditions and conflicting actions" ;
+   rdfs:label "conflict check 3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :PolicyRule ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :r1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :PolicyRule ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :r2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyEvent ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :pe1
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyEvent ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :pe2
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasEvent ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :pe1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :e
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasEvent ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :pe2 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :e
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyCondition ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :pc1
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyCondition ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :pc2
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterKey ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument1> :pc1 ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> :key
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterKey ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument1> :pc2 ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument2> :key
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                         rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterValue ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#argument1> :pc1 ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#argument2> :value
+                                                                                                                                                                   ] ;
+                                                                                                                                                         rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                    rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterValue ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#argument1> :pc2 ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#argument2> :value
+                                                                                                                                                                              ] ;
+                                                                                                                                                                    rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                               rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyAction ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#argument2> :pa1
+                                                                                                                                                                                         ] ;
+                                                                                                                                                                               rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyAction ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#argument2> :pa2
+                                                                                                                                                                                                    ] ;
+                                                                                                                                                                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAction ;
+                                                                                                                                                                                                                 <http://www.w3.org/2003/11/swrl#argument1> :pa1 ;
+                                                                                                                                                                                                                 <http://www.w3.org/2003/11/swrl#argument2> :a1
+                                                                                                                                                                                                               ] ;
+                                                                                                                                                                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAction ;
+                                                                                                                                                                                                                            <http://www.w3.org/2003/11/swrl#argument1> :pa2 ;
+                                                                                                                                                                                                                            <http://www.w3.org/2003/11/swrl#argument2> :a2
+                                                                                                                                                                                                                          ] ;
+                                                                                                                                                                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith ;
+                                                                                                                                                                                                                                       <http://www.w3.org/2003/11/swrl#argument1> :a1 ;
+                                                                                                                                                                                                                                       <http://www.w3.org/2003/11/swrl#argument2> :a2
+                                                                                                                                                                                                                                     ] ;
+                                                                                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                              ]
+                                                                                                                                                                                                   ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                             ]
+                                                                                                                                                                  ]
+                                                                                                                                                       ]
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :a2 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :a1
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Verify if the a metric applies twice for the same action" ;
+   rdfs:label "conflict_check_1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :y ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :z
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Action ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasThreshold ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :z
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMetric ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :y ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :m1
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMetric ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :z ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :m2
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasThreshold ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :usedBySameActionAs ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :m1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :m2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Detect conflicts between goals with same attributes and VNF member indexes" ;
+   rdfs:label "conflict_check_2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Goal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :g1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Goal ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :g2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :g2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasNS ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :ns1
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasNS ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :ns2
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :id ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :ns1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :idt
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :id ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :ns2 ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :idt
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVNF ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :vnf1
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVNF ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> :vnf2
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMemberVNFIndex ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument1> :vnf1 ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument2> :index
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                         rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMemberVNFIndex ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#argument1> :vnf2 ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#argument2> :index
+                                                                                                                                                                   ] ;
+                                                                                                                                                         rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                    rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#classPredicate> :Attribute ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#argument1> :a
+                                                                                                                                                                              ] ;
+                                                                                                                                                                    rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                               rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAttribute ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                                                                                                                                         ] ;
+                                                                                                                                                                               rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAttribute ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                                                                                                                                                    ] ;
+                                                                                                                                                                                          rdf:rest rdf:nil
+                                                                                                                                                                                        ]
+                                                                                                                                                                             ]
+                                                                                                                                                                  ]
+                                                                                                                                                       ]
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :intersectsWith ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :g2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

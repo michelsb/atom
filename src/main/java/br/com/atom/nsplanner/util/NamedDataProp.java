@@ -1,0 +1,72 @@
+package br.com.atom.nsplanner.util;
+
+import javax.annotation.Nonnull;
+
+public class NamedDataProp {
+
+	public static final @Nonnull String _LINKS = "_links";
+	public static final @Nonnull String ADDITIONALAFFINITYORANTIAFFINITYRULE = "additionalAffinityOrAntiAffinityRule";
+	public static final @Nonnull String ADDITIONALARTIFACTS = "additionalArtifacts";
+	public static final @Nonnull String CHECKSUM = "checksum";
+	public static final @Nonnull String FLAVOURID = "flavourId";
+	public static final @Nonnull String HASCOOLDOWNTIME = "hasCoolDownTime";
+	public static final @Nonnull String HASCOUNT = "hasCount";
+	public static final @Nonnull String HASHEALOPERATIONTYPE = "hasHealOperationType";
+	public static final @Nonnull String HASHEALRELATIONALOPERATION = "hasHealRelationalOperation";
+	public static final @Nonnull String HASHEALTHRESHOLD = "hasHealThreshold";
+	public static final @Nonnull String HASHEALINGTYPE = "hasHealingType";
+	public static final @Nonnull String HASHIGHSCALEINTHRESHOLDVALUE = "hasHighScaleInThresholdValue";
+	public static final @Nonnull String HASHIGHSCALEOUTTHRESHOLDVALUE = "hasHighScaleOutThresholdValue";
+	public static final @Nonnull String HASHIGHTHRESHOLDVALUE = "hasHighThresholdValue";
+	public static final @Nonnull String HASLOWSCALEINTHRESHOLDVALUE = "hasLowScaleInThresholdValue";
+	public static final @Nonnull String HASLOWSCALEOUTTHRESHOLDVALUE = "hasLowScaleOutThresholdValue";
+	public static final @Nonnull String HASLOWTHRESHOLDVALUE = "hasLowThresholdValue";
+	public static final @Nonnull String HASMAXINSTANCECOUNT = "hasMaxInstanceCount";
+	public static final @Nonnull String HASMEDIUMSCALEINTHRESHOLDVALUE = "hasMediumScaleInThresholdValue";
+	public static final @Nonnull String HASMEDIUMSCALEOUTTHRESHOLDVALUE = "hasMediumScaleOutThresholdValue";
+	public static final @Nonnull String HASMEDIUMTHRESHOLDVALUE = "hasMediumThresholdValue";
+	public static final @Nonnull String HASMEMBERVNFINDEX = "hasMemberVNFIndex";
+	public static final @Nonnull String HASMEMBERVNFINDEXREF = "hasMemberVNFIndexRef";
+	public static final @Nonnull String HASMININSTANCECOUNT = "hasMinInstanceCount";
+	public static final @Nonnull String HASPARAMETERVALUE = "hasParameterValue";
+	public static final @Nonnull String HASSCALEINOPERATIONTYPE = "hasScaleInOperationType";
+	public static final @Nonnull String HASSCALEINRELATIONALOPERATION = "hasScaleInRelationalOperation";
+	public static final @Nonnull String HASSCALEINTHRESHOLD = "hasScaleInThreshold";
+	public static final @Nonnull String HASSCALEOUTOPERATIONTYPE = "hasScaleOutOperationType";
+	public static final @Nonnull String HASSCALEOUTRELATIONALOPERATION = "hasScaleOutRelationalOperation";
+	public static final @Nonnull String HASSCALEOUTTHRESHOLD = "hasScaleOutThreshold";
+	public static final @Nonnull String HASSCALINGTYPE = "hasScalingType";
+	public static final @Nonnull String HASTHRESHOLDTIME = "hasThresholdTime";
+	public static final @Nonnull String ID = "id";
+	public static final @Nonnull String METHODNAME = "methodName";
+	public static final @Nonnull String MONITORINGPARAMETER = "monitoringParameter";
+	public static final @Nonnull String NDSNAME = "ndsName";
+	public static final @Nonnull String NESTEDNSINSTANCEID = "nestedNsInstanceId";
+	public static final @Nonnull String NESTEDNSDINFOIDS = "nestedNsdInfoIds";
+	public static final @Nonnull String NSDESCRIPTION = "nsDescription";
+	public static final @Nonnull String NSINSTANCEDESCRIPTION = "nsInstanceDescription";
+	public static final @Nonnull String NSINSTANCENAME = "nsInstanceName";
+	public static final @Nonnull String NSNAME = "nsName";
+	public static final @Nonnull String NSSCALESTATUS = "nsScaleStatus";
+	public static final @Nonnull String NSDDESIGNER = "nsdDesigner";
+	public static final @Nonnull String NSDID = "nsdId";
+	public static final @Nonnull String NSDINFOID = "nsdInfoId";
+	public static final @Nonnull String NSDINVARIANTID = "nsdInvariantId";
+	public static final @Nonnull String NSDVERSION = "nsdVersion";
+	public static final @Nonnull String ONBOARDINGFAILUREDETAILS = "onboardingFailureDetails";
+	public static final @Nonnull String PNFINFO = "pnfInfo";
+	public static final @Nonnull String PNFDINFOIDS = "pnfdInfoIds";
+	public static final @Nonnull String SAPINFO = "sapInfo";
+	public static final @Nonnull String SOFTWAREIMAGES = "softwareImages";
+	public static final @Nonnull String USERDEFINEDDATA = "userDefinedData";
+	public static final @Nonnull String VIRTUALLINKINFO = "virtualLinkInfo";
+	public static final @Nonnull String VNFINSTANCE = "vnfInstance";
+	public static final @Nonnull String VNFPKGIDS = "vnfPkgIds";
+	public static final @Nonnull String VNFPRODUCTNAME = "vnfProductName";
+	public static final @Nonnull String VNFPROVIDER = "vnfProvider";
+	public static final @Nonnull String VNFSOFTWAREVERSION = "vnfSoftwareVersion";
+	public static final @Nonnull String VNFDID = "vnfdId";
+	public static final @Nonnull String VNFDVERSION = "vnfdVersion";
+	public static final @Nonnull String VNFFGINFO = "vnffgInfo";
+	
+}

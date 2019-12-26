@@ -1,0 +1,11 @@
+# ignore a file type
+*.rar
+
+# ignore a single file
+catalog-v001.xml
+.project
+.classpath
+
+# ignore an entire directory
+.settings
+target

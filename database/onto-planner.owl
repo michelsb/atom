@@ -1,0 +1,2624 @@
+@prefix : <http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#conflictsWith
+
+:conflictsWith a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:AsymmetricProperty ;
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+
+:conflictsWith rdfs:range _:genid4 .
+
+_:genid4 a owl:Class ;
+	owl:unionOf _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#containedBy
+
+:containedBy a owl:ObjectProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range :NSD .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasAction
+
+:hasAction a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyAction ;
+	rdfs:range _:genid7 .
+
+_:genid7 a owl:Class ;
+	owl:unionOf _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasActionType
+
+:hasActionType a owl:ObjectProperty ;
+	rdfs:domain :HealingCriteria ;
+	rdfs:range :HealingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasAttribute
+
+:hasAttribute a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Goal ;
+	rdfs:range :Attribute .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasEvent
+
+:hasEvent a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyEvent ;
+	rdfs:range :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealingCriteria
+
+:hasHealingCriteria a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :HealingGroup ;
+	rdfs:range :HealingCriteria .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLevel
+
+:hasLevel a owl:ObjectProperty ;
+	rdfs:domain :Goal ;
+	rdfs:range :Level .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMetric
+
+:hasMetric a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	owl:inverseOf :isMetricOf ;
+	rdfs:domain :Threshold ;
+	rdfs:range :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasNS
+
+:hasNS a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Goal ;
+	rdfs:range :NS .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasNsMonitoringParamRef
+
+:hasNsMonitoringParamRef a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain _:genid10 .
+
+_:genid10 a owl:Class ;
+	owl:unionOf _:genid12 .
+
+_:genid12 a rdf:List ;
+	rdf:first :HealingCriteria ;
+	rdf:rest _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first :ScalingCriteria ;
+	rdf:rest rdf:nil .
+
+:hasNsMonitoringParamRef rdfs:range :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasParameterKey
+
+:hasParameterKey a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyCondition ;
+	rdfs:range :Parameter .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyAction
+
+:hasPolicyAction a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyRule ;
+	rdfs:range :PolicyAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyCondition
+
+:hasPolicyCondition a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyRule ;
+	rdfs:range :PolicyCondition .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasPolicyEvent
+
+:hasPolicyEvent a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :PolicyRule ;
+	rdfs:range :PolicyEvent .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingCriteria
+
+:hasScalingCriteria a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :ScalingGroup ;
+	rdfs:range :ScalingCriteria .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingPolicy
+
+:hasScalingPolicy a owl:ObjectProperty ;
+	rdfs:domain :ScalingGroup ;
+	rdfs:range :ScalingPolicy .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasSubject
+
+:hasSubject a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain _:genid13 .
+
+_:genid13 a owl:Class ;
+	owl:unionOf _:genid15 .
+
+_:genid15 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid14 .
+
+_:genid14 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+
+:hasSubject rdfs:range :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasTarget
+
+:hasTarget a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain _:genid16 .
+
+_:genid16 a owl:Class ;
+	owl:unionOf _:genid18 .
+
+_:genid18 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid17 .
+
+_:genid17 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+
+:hasTarget rdfs:range :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasThreshold
+
+:hasThreshold a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	owl:inverseOf :isThresholdOf ;
+	rdfs:domain :Action ;
+	rdfs:range :Threshold .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasVNF
+
+:hasVNF a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Goal ;
+	rdfs:range :VNF .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#intersectsWith
+
+:intersectsWith a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:AsymmetricProperty ;
+	rdfs:domain :Goal ;
+	rdfs:range :Goal .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#isMetricOf
+
+:isMetricOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Metric ;
+	rdfs:range :Threshold .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#isThresholdOf
+
+:isThresholdOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Threshold ;
+	rdfs:range :Action .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsState
+
+:nsState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :NS ;
+	rdfs:range :NS_LCM_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd
+
+:nsd a owl:ObjectProperty ;
+	rdfs:range :NSD .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdFile
+
+:nsdFile a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range :NSD_FILE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdOnboardingState
+
+:nsdOnboardingState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdOperationalState
+
+:nsdOperationalState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdUsageState
+
+:nsdUsageState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboardingState
+
+:onboardingState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#operationalState
+
+:operationalState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#state
+
+:state a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:range :SOL005_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#usageState
+
+:usageState a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#usedBySameActionAs
+
+:usedBySameActionAs a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:IrreflexiveProperty ;
+	rdfs:domain :Metric ;
+	rdfs:range :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdFile
+
+:vnfdFile a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range :VNFD_FILE .
+# 
+# http://www.w3.org/2002/07/owl#differentFrom
+
+owl:differentFrom a owl:ObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#_links
+
+:_links a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#additionalAffinityOrAntiAffinityRule
+
+:additionalAffinityOrAntiAffinityRule a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#additionalArtifacts
+
+:additionalArtifacts a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#checksum
+
+:checksum a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#flavourId
+
+:flavourId a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasCoolDownTime
+
+:hasCoolDownTime a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain _:genid19 .
+
+_:genid19 a owl:Class ;
+	owl:unionOf _:genid21 .
+
+_:genid21 a rdf:List ;
+	rdf:first :HealingPolicy ;
+	rdf:rest _:genid20 .
+
+_:genid20 a rdf:List ;
+	rdf:first :ScalingPolicy ;
+	rdf:rest rdf:nil .
+
+:hasCoolDownTime rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasCount
+
+:hasCount a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingGroup ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealOperationType
+
+:hasHealOperationType a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingPolicy ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealRelationalOperation
+
+:hasHealRelationalOperation a owl:DatatypeProperty ;
+	rdfs:domain :HealingCriteria ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealThreshold
+
+:hasHealThreshold a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingCriteria ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHealingType
+
+:hasHealingType a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingPolicy ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"automatic\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighScaleInThresholdValue
+
+:hasHighScaleInThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighScaleOutThresholdValue
+
+:hasHighScaleOutThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasHighThresholdValue
+
+:hasHighThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowScaleInThresholdValue
+
+:hasLowScaleInThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowScaleOutThresholdValue
+
+:hasLowScaleOutThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasLowThresholdValue
+
+:hasLowThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMaxInstanceCount
+
+:hasMaxInstanceCount a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingGroup ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumScaleInThresholdValue
+
+:hasMediumScaleInThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumScaleOutThresholdValue
+
+:hasMediumScaleOutThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMediumThresholdValue
+
+:hasMediumThresholdValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :HealingThreshold ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMemberVNFIndex
+
+:hasMemberVNFIndex a owl:DatatypeProperty ;
+	rdfs:domain _:genid22 .
+
+_:genid22 a owl:Class ;
+	owl:unionOf _:genid24 .
+
+_:genid24 a rdf:List ;
+	rdf:first :VNF ;
+	rdf:rest _:genid23 .
+
+_:genid23 a rdf:List ;
+	rdf:first :VNFD ;
+	rdf:rest rdf:nil .
+
+:hasMemberVNFIndex rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMemberVNFIndexRef
+
+:hasMemberVNFIndexRef a owl:DatatypeProperty ;
+	rdfs:domain _:genid25 .
+
+_:genid25 a owl:Class ;
+	owl:unionOf _:genid27 .
+
+_:genid27 a rdf:List ;
+	rdf:first :HealingGroup ;
+	rdf:rest _:genid26 .
+
+_:genid26 a rdf:List ;
+	rdf:first :ScalingGroup ;
+	rdf:rest rdf:nil .
+
+:hasMemberVNFIndexRef rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasMinInstanceCount
+
+:hasMinInstanceCount a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingGroup ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasParameterValue
+
+:hasParameterValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :PolicyCondition ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInOperationType
+
+:hasScaleInOperationType a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingPolicy ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInRelationalOperation
+
+:hasScaleInRelationalOperation a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingCriteria ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleInThreshold
+
+:hasScaleInThreshold a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingCriteria ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutOperationType
+
+:hasScaleOutOperationType a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingPolicy ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"AND\", \"OR\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutRelationalOperation
+
+:hasScaleOutRelationalOperation a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingCriteria ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"LT\", \"GT\", \"LE\", \"GE\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScaleOutThreshold
+
+:hasScaleOutThreshold a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingCriteria ;
+	rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasScalingType
+
+:hasScalingType a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :ScalingPolicy ;
+	rdfs:range xsd:string ;
+	rdfs:comment "{\"enum\": [\"automatic\"]}" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hasThresholdTime
+
+:hasThresholdTime a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain _:genid28 .
+
+_:genid28 a owl:Class ;
+	owl:unionOf _:genid30 .
+
+_:genid30 a rdf:List ;
+	rdf:first :HealingPolicy ;
+	rdf:rest _:genid29 .
+
+_:genid29 a rdf:List ;
+	rdf:first :ScalingPolicy ;
+	rdf:rest rdf:nil .
+
+:hasThresholdTime rdfs:range xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#id
+
+:id a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#methodName
+
+:methodName a owl:DatatypeProperty ;
+	rdfs:domain :ManagedEntityMethod ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#monitoringParameter
+
+:monitoringParameter a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ndsName
+
+:ndsName a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nestedNsInstanceId
+
+:nestedNsInstanceId a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nestedNsdInfoIds
+
+:nestedNsdInfoIds a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsDescription
+
+:nsDescription a owl:DatatypeProperty ;
+	rdfs:domain :NSRequest ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsInstanceDescription
+
+:nsInstanceDescription a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsInstanceName
+
+:nsInstanceName a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsName
+
+:nsName a owl:DatatypeProperty ;
+	rdfs:domain :NSRequest ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsScaleStatus
+
+:nsScaleStatus a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdDesigner
+
+:nsdDesigner a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdId
+
+:nsdId a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdInfoId
+
+:nsdInfoId a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdInvariantId
+
+:nsdInvariantId a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdVersion
+
+:nsdVersion a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboardingFailureDetails
+
+:onboardingFailureDetails a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pnfInfo
+
+:pnfInfo a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pnfdInfoIds
+
+:pnfdInfoIds a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sapInfo
+
+:sapInfo a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#softwareImages
+
+:softwareImages a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#userDefinedData
+
+:userDefinedData a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#virtualLinkInfo
+
+:virtualLinkInfo a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfInstance
+
+:vnfInstance a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfPkgIds
+
+:vnfPkgIds a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :NSD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfProductName
+
+:vnfProductName a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfProvider
+
+:vnfProvider a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfSoftwareVersion
+
+:vnfSoftwareVersion a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdId
+
+:vnfdId a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfdVersion
+
+:vnfdVersion a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :VNFD ;
+	rdfs:range xsd:string .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnffgInfo
+
+:vnffgInfo a owl:DatatypeProperty ;
+	rdfs:domain :NS ;
+	rdfs:range xsd:string .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Action
+
+:Action a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Attribute
+
+:Attribute a owl:Class ;
+	owl:equivalentClass _:genid31 .
+
+_:genid31 a owl:Class ;
+	owl:oneOf _:genid35 .
+
+_:genid35 a rdf:List ;
+	rdf:first :manageability ;
+	rdf:rest _:genid34 .
+
+_:genid34 a rdf:List ;
+	rdf:first :performance ;
+	rdf:rest _:genid33 .
+
+_:genid33 a rdf:List ;
+	rdf:first :resilience ;
+	rdf:rest _:genid32 .
+
+_:genid32 a rdf:List ;
+	rdf:first :security ;
+	rdf:rest rdf:nil .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#BaseMetric
+
+:BaseMetric a owl:Class ;
+	rdfs:subClassOf :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Event
+
+:Event a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#GenericMethod
+
+:GenericMethod a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Goal
+
+:Goal a owl:Class ;
+	rdfs:subClassOf _:genid36 .
+
+_:genid36 a owl:Restriction ;
+	owl:onProperty :hasAttribute ;
+	owl:someValuesFrom :Attribute .
+
+:Goal rdfs:subClassOf _:genid37 .
+
+_:genid37 a owl:Restriction ;
+	owl:onProperty :hasVNF ;
+	owl:someValuesFrom :VNF .
+
+:Goal rdfs:subClassOf _:genid38 .
+
+_:genid38 a owl:Restriction ;
+	owl:onProperty :hasLevel ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :Level .
+
+:Goal rdfs:subClassOf _:genid39 .
+
+_:genid39 a owl:Restriction ;
+	owl:onProperty :hasNS ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :NS .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingAction
+
+:HealingAction a owl:Class ;
+	owl:equivalentClass _:genid40 .
+
+_:genid40 a owl:Class ;
+	owl:oneOf _:genid44 .
+
+_:genid44 a rdf:List ;
+	rdf:first :migrate ;
+	rdf:rest _:genid43 .
+
+_:genid43 a rdf:List ;
+	rdf:first :redeploy ;
+	rdf:rest _:genid42 .
+
+_:genid42 a rdf:List ;
+	rdf:first :restart ;
+	rdf:rest _:genid41 .
+
+_:genid41 a rdf:List ;
+	rdf:first :turnoff ;
+	rdf:rest rdf:nil .
+
+:HealingAction rdfs:subClassOf :Action .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingCriteria
+
+:HealingCriteria a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingGroup
+
+:HealingGroup a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingPolicy
+
+:HealingPolicy a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#HealingThreshold
+
+:HealingThreshold a owl:Class ;
+	rdfs:subClassOf :Threshold , _:genid45 .
+
+_:genid45 a owl:Restriction ;
+	owl:onProperty :hasHighThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:HealingThreshold rdfs:subClassOf _:genid46 .
+
+_:genid46 a owl:Restriction ;
+	owl:onProperty :hasLowThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:HealingThreshold rdfs:subClassOf _:genid47 .
+
+_:genid47 a owl:Restriction ;
+	owl:onProperty :hasMediumThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:HealingThreshold owl:disjointWith :ScalingThreshold .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005Method
+
+:IFA005Method a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod ;
+	rdfs:comment "IFA 005 - Or-Vi reference point" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtCompMethod
+
+:IFA005VirtCompMethod a owl:Class ;
+	rdfs:subClassOf :IFA005Method ;
+	rdfs:comment "IFA 005 - Virtualised Compute Interfaces" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtResFMMethod
+
+:IFA005VirtResFMMethod a owl:Class ;
+	rdfs:subClassOf :IFA005Method .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA005VirtResResMethod
+
+:IFA005VirtResResMethod a owl:Class ;
+	rdfs:subClassOf :IFA005Method ;
+	rdfs:comment "IFA 005 - Virtualised Resource Reservation Interfaces" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006Method
+
+:IFA006Method a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod ;
+	rdfs:comment "IFA 006 - Vi-Vnfm reference point" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006VirtCompMethod
+
+:IFA006VirtCompMethod a owl:Class ;
+	rdfs:subClassOf :IFA006Method ;
+	rdfs:comment "IFA 006 - Virtualised Compute Resources Management Interface" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA006VirtResFMMethod
+
+:IFA006VirtResFMMethod a owl:Class ;
+	rdfs:subClassOf :IFA006Method ;
+	rdfs:comment "IFA 006 - Virtualised Resources Fault Management Interface" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA007Method
+
+:IFA007Method a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod ;
+	rdfs:comment "IFA 007 - Or-Vnfm reference point" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA007VNFLcmMethod
+
+:IFA007VNFLcmMethod a owl:Class ;
+	rdfs:subClassOf :IFA007Method ;
+	rdfs:comment "IFA 007 - VNF Lifecycle Management interface" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008Method
+
+:IFA008Method a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod ;
+	rdfs:comment "IFA 008 - Ve-Vnfm reference point" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008VNFConfigMethod
+
+:IFA008VNFConfigMethod a owl:Class ;
+	rdfs:subClassOf :IFA008Method ;
+	rdfs:comment "IFA 008 - VNF configuration interface" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA008VNFIndMethod
+
+:IFA008VNFIndMethod a owl:Class ;
+	rdfs:subClassOf :IFA008Method ;
+	rdfs:comment "IFA 008 - VNF indicator interface" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013Method
+
+:IFA013Method a owl:Class ;
+	rdfs:subClassOf :ManagedEntityMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013NSDMethod
+
+:IFA013NSDMethod a owl:Class ;
+	rdfs:subClassOf :IFA013Method .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013NSLcmMethod
+
+:IFA013NSLcmMethod a owl:Class ;
+	rdfs:subClassOf :IFA013Method .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#IFA013VNFPKGMethod
+
+:IFA013VNFPKGMethod a owl:Class ;
+	rdfs:subClassOf :IFA013Method .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Level
+
+:Level a owl:Class ;
+	owl:equivalentClass _:genid48 .
+
+_:genid48 a owl:Class ;
+	owl:oneOf _:genid51 .
+
+_:genid51 a rdf:List ;
+	rdf:first :high ;
+	rdf:rest _:genid50 .
+
+_:genid50 a rdf:List ;
+	rdf:first :low ;
+	rdf:rest _:genid49 .
+
+_:genid49 a rdf:List ;
+	rdf:first :medium ;
+	rdf:rest rdf:nil .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ManagedEntity
+
+:ManagedEntity a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ManagedEntityMethod
+
+:ManagedEntityMethod a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Metric
+
+:Metric a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS
+
+:NS a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD
+
+:NSD a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD_FILE
+
+:NSD_FILE a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSD_MGMT_STATE
+
+:NSD_MGMT_STATE a owl:Class ;
+	rdfs:subClassOf :SOL005_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NSRequest
+
+:NSRequest a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_FM_MGMT_STATE
+
+:NS_FM_MGMT_STATE a owl:Class ;
+	rdfs:subClassOf :SOL005_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_LCM_MGMT_STATE
+
+:NS_LCM_MGMT_STATE a owl:Class ;
+	rdfs:subClassOf :SOL005_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#NS_PERF_MGMT_STATE
+
+:NS_PERF_MGMT_STATE a owl:Class ;
+	rdfs:subClassOf :SOL005_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Parameter
+
+:Parameter a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PerfCheckerMetric
+
+:PerfCheckerMetric a owl:Class ;
+	rdfs:subClassOf :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyAction
+
+:PolicyAction a owl:Class ;
+	rdfs:subClassOf _:genid52 .
+
+_:genid52 a owl:Restriction ;
+	owl:onProperty :hasAction ;
+	owl:someValuesFrom _:genid53 .
+
+_:genid53 a owl:Class ;
+	owl:unionOf _:genid55 .
+
+_:genid55 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid54 .
+
+_:genid54 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest rdf:nil .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyCondition
+
+:PolicyCondition a owl:Class ;
+	rdfs:subClassOf _:genid56 .
+
+_:genid56 a owl:Restriction ;
+	owl:onProperty :hasParameterKey ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :Parameter .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyEvent
+
+:PolicyEvent a owl:Class ;
+	rdfs:subClassOf _:genid57 .
+
+_:genid57 a owl:Restriction ;
+	owl:onProperty :hasEvent ;
+	owl:someValuesFrom :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#PolicyRule
+
+:PolicyRule a owl:Class ;
+	rdfs:subClassOf _:genid58 .
+
+_:genid58 a owl:Restriction ;
+	owl:onProperty :hasPolicyAction ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :PolicyAction .
+
+:PolicyRule rdfs:subClassOf _:genid59 .
+
+_:genid59 a owl:Restriction ;
+	owl:onProperty :hasPolicyEvent ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass :PolicyEvent .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#SOL005_STATE
+
+:SOL005_STATE a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingAction
+
+:ScalingAction a owl:Class ;
+	owl:equivalentClass _:genid60 .
+
+_:genid60 a owl:Class ;
+	owl:oneOf _:genid61 .
+
+_:genid61 a rdf:List ;
+	rdf:first :horizontal_scale ;
+	rdf:rest rdf:nil .
+
+:ScalingAction rdfs:subClassOf :Action .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingCriteria
+
+:ScalingCriteria a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingGroup
+
+:ScalingGroup a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingPolicy
+
+:ScalingPolicy a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ScalingThreshold
+
+:ScalingThreshold a owl:Class ;
+	rdfs:subClassOf :Threshold , _:genid62 .
+
+_:genid62 a owl:Restriction ;
+	owl:onProperty :hasHighScaleInThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:ScalingThreshold rdfs:subClassOf _:genid63 .
+
+_:genid63 a owl:Restriction ;
+	owl:onProperty :hasHighScaleOutThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:ScalingThreshold rdfs:subClassOf _:genid64 .
+
+_:genid64 a owl:Restriction ;
+	owl:onProperty :hasLowScaleInThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:ScalingThreshold rdfs:subClassOf _:genid65 .
+
+_:genid65 a owl:Restriction ;
+	owl:onProperty :hasLowScaleOutThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:ScalingThreshold rdfs:subClassOf _:genid66 .
+
+_:genid66 a owl:Restriction ;
+	owl:onProperty :hasMediumScaleInThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+
+:ScalingThreshold rdfs:subClassOf _:genid67 .
+
+_:genid67 a owl:Restriction ;
+	owl:onProperty :hasMediumScaleOutThresholdValue ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#Threshold
+
+:Threshold a owl:Class ;
+	rdfs:subClassOf _:genid68 .
+
+_:genid68 a owl:Restriction ;
+	owl:onProperty :hasMetric ;
+	owl:someValuesFrom :Metric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNF
+
+:VNF a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFC
+
+:VNFC a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFD
+
+:VNFD a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNFD_FILE
+
+:VNFD_FILE a owl:Class .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#VNF_PKG_MGMT_STATE
+
+:VNF_PKG_MGMT_STATE a owl:Class ;
+	rdfs:subClassOf :SOL005_STATE .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#alarm_notified
+
+:alarm_notified a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#alarm_type
+
+:alarm_type a owl:NamedIndividual , :Parameter .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_dynamic_traffic_fluctuations_mechanisms
+
+:configure_dynamic_traffic_fluctuations_mechanisms a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_failures_prediction_mechanisms
+
+:configure_failures_prediction_mechanisms a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#configure_multipath_routing
+
+:configure_multipath_routing a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_healing_policies
+
+:create_healing_policies a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :pol .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_link_active_active_redundancy
+
+:create_link_active_active_redundancy a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_link_active_standby_redundancy
+
+:create_link_active_standby_redundancy a owl:NamedIndividual , :GenericMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_load_sharing_between_links
+
+:create_load_sharing_between_links a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_nic_bonding_of_vnics
+
+:create_nic_bonding_of_vnics a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_ns_identifier
+
+:create_ns_identifier a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_phy_nic_bonding
+
+:create_phy_nic_bonding a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_scaling_policies
+
+:create_scaling_policies a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :pol .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#create_vnf_internal_redundancy
+
+:create_vnf_internal_redundancy a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_ns_identifier
+
+:delete_ns_identifier a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_nsd
+
+:delete_nsd a owl:NamedIndividual , :IFA013NSDMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#delete_vnfpkg
+
+:delete_vnfpkg a owl:NamedIndividual , :IFA013VNFPKGMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#disable_nsd
+
+:disable_nsd a owl:NamedIndividual , :IFA013NSDMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#disable_vnfpkg
+
+:disable_vnfpkg a owl:NamedIndividual , :IFA013VNFPKGMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#enable_nsd
+
+:enable_nsd a owl:NamedIndividual , :IFA013NSDMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#enable_vnfpkg
+
+:enable_vnfpkg a owl:NamedIndividual , :IFA013VNFPKGMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#fetch_vnfpkg
+
+:fetch_vnfpkg a owl:NamedIndividual , :IFA013VNFPKGMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#get_operation_status
+
+:get_operation_status a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#heal_ns
+
+:heal_ns a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#high
+
+:high a owl:NamedIndividual , :Level .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#horizontal_scale
+
+:horizontal_scale a owl:NamedIndividual , :ScalingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#hp_template
+
+:hp_template a owl:NamedIndividual , :HealingPolicy ;
+	:hasCoolDownTime "120"^^xsd:integer ;
+	:hasHealOperationType "AND" ;
+	:hasHealingType "automatic" ;
+	:hasThresholdTime "60"^^xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_allocate_vcomp
+
+:ifa005_allocate_vcomp a owl:NamedIndividual , :IFA005VirtCompMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_migrate_vcomp
+
+:ifa005_migrate_vcomp a owl:NamedIndividual , :IFA005VirtCompMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa005_subscribe_link_out_of_service_event
+
+:ifa005_subscribe_link_out_of_service_event a owl:NamedIndividual , :IFA005VirtResFMMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa006_migrate_vcomp
+
+:ifa006_migrate_vcomp a owl:NamedIndividual , :IFA006VirtCompMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa006_subscribe_link_down_event
+
+:ifa006_subscribe_link_down_event a owl:NamedIndividual , :IFA006VirtResFMMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa007_terminate_vnf
+
+:ifa007_terminate_vnf a owl:NamedIndividual , :IFA007VNFLcmMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vnfm .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa008_set_configuration
+
+:ifa008_set_configuration a owl:NamedIndividual , :IFA008VNFConfigMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vnf .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ifa008_subscribe_vnf_out_of_service_event
+
+:ifa008_subscribe_vnf_out_of_service_event a owl:NamedIndividual , :IFA008VNFIndMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vnf .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#instantiate_ns
+
+:instantiate_ns a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#instantiation_request
+
+:instantiation_request a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#logical_unit
+
+:logical_unit a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#low
+
+:low a owl:NamedIndividual , :Level .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#manageability
+
+:manageability a owl:NamedIndividual , :Attribute .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#medium
+
+:medium a owl:NamedIndividual , :Level .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#migrate
+
+:migrate a owl:NamedIndividual , :HealingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#move_conn_to_vnf_backup
+
+:move_conn_to_vnf_backup a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :nfvo ;
+	:hasTarget :vim .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nfvo
+
+:nfvo a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_id
+
+:ns_id a owl:NamedIndividual , :Parameter .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_instantiated
+
+:ns_instantiated a owl:NamedIndividual , :NS_LCM_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#ns_not_instantiated
+
+:ns_not_instantiated a owl:NamedIndividual , :NS_LCM_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_created
+
+:nsd_on_created a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_onboarded
+
+:nsd_on_onboarded a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_processing
+
+:nsd_on_processing a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_on_uploading
+
+:nsd_on_uploading a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_op_disabled
+
+:nsd_op_disabled a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_op_enabled
+
+:nsd_op_enabled a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_us_in_use
+
+:nsd_us_in_use a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsd_us_not_in_use
+
+:nsd_us_not_in_use a owl:NamedIndividual , :NSD_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdcontent_uploaded
+
+:nsdcontent_uploaded a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsdinfo_created
+
+:nsdinfo_created a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_created
+
+:nsinst_created a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_deleted
+
+:nsinst_deleted a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_healed
+
+:nsinst_healed a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_instantiated
+
+:nsinst_instantiated a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_scaled
+
+:nsinst_scaled a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#nsinst_terminated
+
+:nsinst_terminated a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboard_nsd
+
+:onboard_nsd a owl:NamedIndividual , :IFA013NSDMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#onboard_vnfpkg
+
+:onboard_vnfpkg a owl:NamedIndividual , :IFA013VNFPKGMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_cpu_load
+
+:osm_pc_vim_cpu_load a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_bytes
+
+:osm_pc_vim_dc_vswitch_rx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_dropped
+
+:osm_pc_vim_dc_vswitch_rx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_rx_packets
+
+:osm_pc_vim_dc_vswitch_rx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_bytes
+
+:osm_pc_vim_dc_vswitch_tx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_dropped
+
+:osm_pc_vim_dc_vswitch_tx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_dc_vswitch_tx_packets
+
+:osm_pc_vim_dc_vswitch_tx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_mem_load
+
+:osm_pc_vim_mem_load a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_bytes
+
+:osm_pc_vim_phynic_rx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_dropped
+
+:osm_pc_vim_phynic_rx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_rx_packets
+
+:osm_pc_vim_phynic_rx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_bytes
+
+:osm_pc_vim_phynic_tx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_dropped
+
+:osm_pc_vim_phynic_tx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_phynic_tx_packets
+
+:osm_pc_vim_phynic_tx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_bytes
+
+:osm_pc_vim_vnic_rx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_dropped
+
+:osm_pc_vim_vnic_rx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_rx_packets
+
+:osm_pc_vim_vnic_rx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_bytes
+
+:osm_pc_vim_vnic_tx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_dropped
+
+:osm_pc_vim_vnic_tx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vnic_tx_packets
+
+:osm_pc_vim_vnic_tx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_bytes
+
+:osm_pc_vim_vswitch_rx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_dropped
+
+:osm_pc_vim_vswitch_rx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_rx_packets
+
+:osm_pc_vim_vswitch_rx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_bytes
+
+:osm_pc_vim_vswitch_tx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_dropped
+
+:osm_pc_vim_vswitch_tx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vim_vswitch_tx_packets
+
+:osm_pc_vim_vswitch_tx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_cpu_load
+
+:osm_pc_vm_cpu_load a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_disk_in_bytes
+
+:osm_pc_vm_disk_in_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_disk_out_bytes
+
+:osm_pc_vm_disk_out_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_mem_load
+
+:osm_pc_vm_mem_load a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_mem_usage_bytes
+
+:osm_pc_vm_mem_usage_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_pkt_in_bytes
+
+:osm_pc_vm_pkt_in_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_pkt_out_bytes
+
+:osm_pc_vm_pkt_out_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_bytes
+
+:osm_pc_vm_vnic_rx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_dropped
+
+:osm_pc_vm_vnic_rx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_rx_packets
+
+:osm_pc_vm_vnic_rx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_bytes
+
+:osm_pc_vm_vnic_tx_bytes a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_dropped
+
+:osm_pc_vm_vnic_tx_dropped a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_pc_vm_vnic_tx_packets
+
+:osm_pc_vm_vnic_tx_packets a owl:NamedIndividual , :PerfCheckerMetric .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_vim_status
+
+:osm_vim_status a owl:NamedIndividual , :BaseMetric ;
+	rdfs:comment "true or false" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#osm_vm_status
+
+:osm_vm_status a owl:NamedIndividual , :BaseMetric ;
+	rdfs:comment "This metric is 1 if VM has ACTIVE status and 0 otherwise" .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#performance
+
+:performance a owl:NamedIndividual , :Attribute .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#pol
+
+:pol a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#redeploy
+
+:redeploy a owl:NamedIndividual , :HealingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#resilience
+
+:resilience a owl:NamedIndividual , :Attribute .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#restart
+
+:restart a owl:NamedIndividual , :HealingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#retrieve_state_from_logical_unit
+
+:retrieve_state_from_logical_unit a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :vnf ;
+	:hasTarget :logical_unit .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#scale_ns
+
+:scale_ns a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#security
+
+:security a owl:NamedIndividual , :Attribute .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sg_template
+
+:sg_template a owl:NamedIndividual , :ScalingGroup ;
+	:hasScalingPolicy :sp_template ;
+	:hasCount "1"^^xsd:integer ;
+	:hasMaxInstanceCount "10"^^xsd:integer ;
+	:hasMinInstanceCount "0"^^xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#sp_template
+
+:sp_template a owl:NamedIndividual , :ScalingPolicy ;
+	:hasCoolDownTime "120"^^xsd:integer ;
+	:hasScaleInOperationType "AND" ;
+	:hasScaleOutOperationType "OR" ;
+	:hasScalingType "automatic" ;
+	:hasThresholdTime "60"^^xsd:integer .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#success_resource_response
+
+:success_resource_response a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#terminate_ns
+
+:terminate_ns a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#transfer_state_to_logical_unit
+
+:transfer_state_to_logical_unit a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vnf .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#transfer_state_to_vnf_backup
+
+:transfer_state_to_vnf_backup a owl:NamedIndividual , :GenericMethod ;
+	:hasSubject :vnfm ;
+	:hasTarget :vnf .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#turnoff
+
+:turnoff a owl:NamedIndividual , :HealingAction .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#update_ns
+
+:update_ns a owl:NamedIndividual , :IFA013NSLcmMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#update_nsd
+
+:update_nsd a owl:NamedIndividual , :IFA013NSDMethod .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vim
+
+:vim a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnf
+
+:vnf a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnf_member_index
+
+:vnf_member_index a owl:NamedIndividual , :Parameter .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_created
+
+:vnfd_on_created a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_onboarded
+
+:vnfd_on_onboarded a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_processing
+
+:vnfd_on_processing a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_on_uploading
+
+:vnfd_on_uploading a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_op_disabled
+
+:vnfd_op_disabled a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_op_enabled
+
+:vnfd_op_enabled a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_us_in_use
+
+:vnfd_us_in_use a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfd_us_not_in_use
+
+:vnfd_us_not_in_use a owl:NamedIndividual , :VNF_PKG_MGMT_STATE .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_created
+
+:vnfinst_created a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_deleted
+
+:vnfinst_deleted a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_healed
+
+:vnfinst_healed a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_instantiated
+
+:vnfinst_instantiated a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_scaled
+
+:vnfinst_scaled a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfinst_terminated
+
+:vnfinst_terminated a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfm
+
+:vnfm a owl:NamedIndividual , :ManagedEntity .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfpkgcontent_uploaded
+
+:vnfpkgcontent_uploaded a owl:NamedIndividual , :Event .
+# 
+# http://cin.ufpe.br/msb6/ontologies/2019/8/onto-planner.owl#vnfpkginfo_created
+
+:vnfpkginfo_created a owl:NamedIndividual , :Event .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid69 a owl:AllDisjointClasses ;
+	owl:members _:genid96 .
+
+_:genid96 a rdf:List ;
+	rdf:first :Action ;
+	rdf:rest _:genid95 .
+
+_:genid95 a rdf:List ;
+	rdf:first :Event ;
+	rdf:rest _:genid94 .
+
+_:genid94 a rdf:List ;
+	rdf:first :Goal ;
+	rdf:rest _:genid93 .
+
+_:genid93 a rdf:List ;
+	rdf:first :HealingCriteria ;
+	rdf:rest _:genid92 .
+
+_:genid92 a rdf:List ;
+	rdf:first :HealingGroup ;
+	rdf:rest _:genid91 .
+
+_:genid91 a rdf:List ;
+	rdf:first :HealingPolicy ;
+	rdf:rest _:genid90 .
+
+_:genid90 a rdf:List ;
+	rdf:first :ManagedEntity ;
+	rdf:rest _:genid89 .
+
+_:genid89 a rdf:List ;
+	rdf:first :ManagedEntityMethod ;
+	rdf:rest _:genid88 .
+
+_:genid88 a rdf:List ;
+	rdf:first :Metric ;
+	rdf:rest _:genid87 .
+
+_:genid87 a rdf:List ;
+	rdf:first :NS ;
+	rdf:rest _:genid86 .
+
+_:genid86 a rdf:List ;
+	rdf:first :NSD ;
+	rdf:rest _:genid85 .
+
+_:genid85 a rdf:List ;
+	rdf:first :NSD_FILE ;
+	rdf:rest _:genid84 .
+
+_:genid84 a rdf:List ;
+	rdf:first :NSRequest ;
+	rdf:rest _:genid83 .
+
+_:genid83 a rdf:List ;
+	rdf:first :Parameter ;
+	rdf:rest _:genid82 .
+
+_:genid82 a rdf:List ;
+	rdf:first :PolicyAction ;
+	rdf:rest _:genid81 .
+
+_:genid81 a rdf:List ;
+	rdf:first :PolicyCondition ;
+	rdf:rest _:genid80 .
+
+_:genid80 a rdf:List ;
+	rdf:first :PolicyEvent ;
+	rdf:rest _:genid79 .
+
+_:genid79 a rdf:List ;
+	rdf:first :PolicyRule ;
+	rdf:rest _:genid78 .
+
+_:genid78 a rdf:List ;
+	rdf:first :SOL005_STATE ;
+	rdf:rest _:genid77 .
+
+_:genid77 a rdf:List ;
+	rdf:first :ScalingCriteria ;
+	rdf:rest _:genid76 .
+
+_:genid76 a rdf:List ;
+	rdf:first :ScalingGroup ;
+	rdf:rest _:genid75 .
+
+_:genid75 a rdf:List ;
+	rdf:first :ScalingPolicy ;
+	rdf:rest _:genid74 .
+
+_:genid74 a rdf:List ;
+	rdf:first :Threshold ;
+	rdf:rest _:genid73 .
+
+_:genid73 a rdf:List ;
+	rdf:first :VNF ;
+	rdf:rest _:genid72 .
+
+_:genid72 a rdf:List ;
+	rdf:first :VNFC ;
+	rdf:rest _:genid71 .
+
+_:genid71 a rdf:List ;
+	rdf:first :VNFD ;
+	rdf:rest _:genid70 .
+
+_:genid70 a rdf:List ;
+	rdf:first :VNFD_FILE ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid97 a owl:AllDisjointClasses ;
+	owl:members _:genid102 .
+
+_:genid102 a rdf:List ;
+	rdf:first :GenericMethod ;
+	rdf:rest _:genid101 .
+
+_:genid101 a rdf:List ;
+	rdf:first :IFA005Method ;
+	rdf:rest _:genid100 .
+
+_:genid100 a rdf:List ;
+	rdf:first :IFA006Method ;
+	rdf:rest _:genid99 .
+
+_:genid99 a rdf:List ;
+	rdf:first :IFA007Method ;
+	rdf:rest _:genid98 .
+
+_:genid98 a rdf:List ;
+	rdf:first :IFA013Method ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid103 a owl:AllDisjointClasses ;
+	owl:members _:genid106 .
+
+_:genid106 a rdf:List ;
+	rdf:first :IFA013NSDMethod ;
+	rdf:rest _:genid105 .
+
+_:genid105 a rdf:List ;
+	rdf:first :IFA013NSLcmMethod ;
+	rdf:rest _:genid104 .
+
+_:genid104 a rdf:List ;
+	rdf:first :IFA013VNFPKGMethod ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid107 a owl:AllDisjointClasses ;
+	owl:members _:genid112 .
+
+_:genid112 a rdf:List ;
+	rdf:first :NSD_MGMT_STATE ;
+	rdf:rest _:genid111 .
+
+_:genid111 a rdf:List ;
+	rdf:first :NS_FM_MGMT_STATE ;
+	rdf:rest _:genid110 .
+
+_:genid110 a rdf:List ;
+	rdf:first :NS_LCM_MGMT_STATE ;
+	rdf:rest _:genid109 .
+
+_:genid109 a rdf:List ;
+	rdf:first :NS_PERF_MGMT_STATE ;
+	rdf:rest _:genid108 .
+
+_:genid108 a rdf:List ;
+	rdf:first :VNF_PKG_MGMT_STATE ;
+	rdf:rest rdf:nil .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+
+:g1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:g2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ns1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ns2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:idt a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:vnf1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:vnf2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:index a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pe1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pe2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:e a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pc1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pc2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:key a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:value a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pa1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pa2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:y a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:z a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:x a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:m1 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:m2 a <http://www.w3.org/2003/11/swrl#Variable> .
+
+_:genid113 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "Detect conflicts between goals with same attributes and VNF member indexes" ;
+	rdfs:label "conflict_check_2" ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid140 .
+
+_:genid140 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid141 .
+
+_:genid141 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :Goal ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 .
+
+_:genid140 rdf:rest _:genid138 .
+
+_:genid138 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid139 .
+
+_:genid139 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :Goal ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g2 .
+
+_:genid138 rdf:rest _:genid136 .
+
+_:genid136 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid137 .
+
+_:genid137 a <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :g2 .
+
+_:genid136 rdf:rest _:genid134 .
+
+_:genid134 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid135 .
+
+_:genid135 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasNS ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :ns1 .
+
+_:genid134 rdf:rest _:genid132 .
+
+_:genid132 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid133 .
+
+_:genid133 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasNS ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :ns2 .
+
+_:genid132 rdf:rest _:genid130 .
+
+_:genid130 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid131 .
+
+_:genid131 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :id ;
+	<http://www.w3.org/2003/11/swrl#argument1> :ns1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :idt .
+
+_:genid130 rdf:rest _:genid128 .
+
+_:genid128 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid129 .
+
+_:genid129 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :id ;
+	<http://www.w3.org/2003/11/swrl#argument1> :ns2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :idt .
+
+_:genid128 rdf:rest _:genid126 .
+
+_:genid126 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid127 .
+
+_:genid127 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVNF ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :vnf1 .
+
+_:genid126 rdf:rest _:genid124 .
+
+_:genid124 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid125 .
+
+_:genid125 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasVNF ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :vnf2 .
+
+_:genid124 rdf:rest _:genid122 .
+
+_:genid122 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid123 .
+
+_:genid123 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMemberVNFIndex ;
+	<http://www.w3.org/2003/11/swrl#argument1> :vnf1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :index .
+
+_:genid122 rdf:rest _:genid120 .
+
+_:genid120 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid121 .
+
+_:genid121 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMemberVNFIndex ;
+	<http://www.w3.org/2003/11/swrl#argument1> :vnf2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :index .
+
+_:genid120 rdf:rest _:genid118 .
+
+_:genid118 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid119 .
+
+_:genid119 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :Attribute ;
+	<http://www.w3.org/2003/11/swrl#argument1> :a .
+
+_:genid118 rdf:rest _:genid116 .
+
+_:genid116 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid117 .
+
+_:genid117 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAttribute ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a .
+
+_:genid116 rdf:rest _:genid114 .
+
+_:genid114 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid115 .
+
+_:genid115 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAttribute ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a .
+
+_:genid114 rdf:rest rdf:nil .
+
+_:genid113 <http://www.w3.org/2003/11/swrl#head> _:genid142 .
+
+_:genid142 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid143 .
+
+_:genid143 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :intersectsWith ;
+	<http://www.w3.org/2003/11/swrl#argument1> :g1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :g2 .
+
+_:genid142 rdf:rest rdf:nil .
+
+_:genid144 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "Detect conflicts between generated policies rule with same events and conditions and conflicting actions" ;
+	rdfs:label "conflict check 3" ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid177 .
+
+_:genid177 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid178 .
+
+_:genid178 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :PolicyRule ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r1 .
+
+_:genid177 rdf:rest _:genid175 .
+
+_:genid175 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid176 .
+
+_:genid176 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :PolicyRule ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r2 .
+
+_:genid175 rdf:rest _:genid173 .
+
+_:genid173 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid174 .
+
+_:genid174 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyEvent ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pe1 .
+
+_:genid173 rdf:rest _:genid171 .
+
+_:genid171 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid172 .
+
+_:genid172 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyEvent ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pe2 .
+
+_:genid171 rdf:rest _:genid169 .
+
+_:genid169 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid170 .
+
+_:genid170 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasEvent ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pe1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :e .
+
+_:genid169 rdf:rest _:genid167 .
+
+_:genid167 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid168 .
+
+_:genid168 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasEvent ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pe2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :e .
+
+_:genid167 rdf:rest _:genid165 .
+
+_:genid165 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid166 .
+
+_:genid166 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyCondition ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pc1 .
+
+_:genid165 rdf:rest _:genid163 .
+
+_:genid163 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid164 .
+
+_:genid164 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyCondition ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pc2 .
+
+_:genid163 rdf:rest _:genid161 .
+
+_:genid161 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid162 .
+
+_:genid162 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterKey ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pc1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :key .
+
+_:genid161 rdf:rest _:genid159 .
+
+_:genid159 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid160 .
+
+_:genid160 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterKey ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pc2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :key .
+
+_:genid159 rdf:rest _:genid157 .
+
+_:genid157 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid158 .
+
+_:genid158 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterValue ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pc1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :value .
+
+_:genid157 rdf:rest _:genid155 .
+
+_:genid155 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid156 .
+
+_:genid156 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasParameterValue ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pc2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :value .
+
+_:genid155 rdf:rest _:genid153 .
+
+_:genid153 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid154 .
+
+_:genid154 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyAction ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pa1 .
+
+_:genid153 rdf:rest _:genid151 .
+
+_:genid151 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid152 .
+
+_:genid152 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPolicyAction ;
+	<http://www.w3.org/2003/11/swrl#argument1> :r2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :pa2 .
+
+_:genid151 rdf:rest _:genid149 .
+
+_:genid149 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid150 .
+
+_:genid150 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAction ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pa1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a1 .
+
+_:genid149 rdf:rest _:genid147 .
+
+_:genid147 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid148 .
+
+_:genid148 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAction ;
+	<http://www.w3.org/2003/11/swrl#argument1> :pa2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a2 .
+
+_:genid147 rdf:rest _:genid145 .
+
+_:genid145 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid146 .
+
+_:genid146 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith ;
+	<http://www.w3.org/2003/11/swrl#argument1> :a1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a2 .
+
+_:genid145 rdf:rest rdf:nil .
+
+_:genid144 <http://www.w3.org/2003/11/swrl#head> _:genid179 .
+
+_:genid179 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid180 .
+
+_:genid180 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith ;
+	<http://www.w3.org/2003/11/swrl#argument1> :a2 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :a1 .
+
+_:genid179 rdf:rest rdf:nil .
+
+_:genid181 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "Verify if the a metric applies twice for the same action" ;
+	rdfs:label "conflict_check_1" ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid192 .
+
+_:genid192 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid193 .
+
+_:genid193 a <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+	<http://www.w3.org/2003/11/swrl#argument1> :y ;
+	<http://www.w3.org/2003/11/swrl#argument2> :z .
+
+_:genid192 rdf:rest _:genid190 .
+
+_:genid190 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid191 .
+
+_:genid191 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> :Action ;
+	<http://www.w3.org/2003/11/swrl#argument1> :x .
+
+_:genid190 rdf:rest _:genid188 .
+
+_:genid188 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid189 .
+
+_:genid189 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasThreshold ;
+	<http://www.w3.org/2003/11/swrl#argument1> :x ;
+	<http://www.w3.org/2003/11/swrl#argument2> :z .
+
+_:genid188 rdf:rest _:genid186 .
+
+_:genid186 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid187 .
+
+_:genid187 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMetric ;
+	<http://www.w3.org/2003/11/swrl#argument1> :y ;
+	<http://www.w3.org/2003/11/swrl#argument2> :m1 .
+
+_:genid186 rdf:rest _:genid184 .
+
+_:genid184 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid185 .
+
+_:genid185 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasMetric ;
+	<http://www.w3.org/2003/11/swrl#argument1> :z ;
+	<http://www.w3.org/2003/11/swrl#argument2> :m2 .
+
+_:genid184 rdf:rest _:genid182 .
+
+_:genid182 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid183 .
+
+_:genid183 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :hasThreshold ;
+	<http://www.w3.org/2003/11/swrl#argument1> :x ;
+	<http://www.w3.org/2003/11/swrl#argument2> :y .
+
+_:genid182 rdf:rest rdf:nil .
+
+_:genid181 <http://www.w3.org/2003/11/swrl#head> _:genid194 .
+
+_:genid194 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid195 .
+
+_:genid195 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> :usedBySameActionAs ;
+	<http://www.w3.org/2003/11/swrl#argument1> :m1 ;
+	<http://www.w3.org/2003/11/swrl#argument2> :m2 .
+
+_:genid194 rdf:rest rdf:nil .
+# Generated by the OWL API (version 5.1.5.2018-04-23T06:33:27Z) https://github.com/owlcs/owlapi/

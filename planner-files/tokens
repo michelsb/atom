@@ -1,0 +1,5 @@
+{
+    "detail": "Expected application/yaml or application/json Content-Type",
+    "status": 400,
+    "code": "BAD_REQUEST"
+}
